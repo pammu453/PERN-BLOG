@@ -1,0 +1,16 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    image TEXT
+)
+
+CREATE TABLE blogs (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    desc VARCHAR(10000) NOT NULL,
+    cat VARCHAR(255) NOT NULL,
+    img TEXT NOT NULL,
+    uid INTEGER REFERENCES users (id) ON DELETE CASCADE
+);
